@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+        }
+
+        main {
+            background-image: url('imgfood-bg.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            padding: 20px;
+            min-height: calc(100vh - 60px); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(18, 17, 17); 
+            margin: 0;
+        }
+
+        .container {
+            background: var(--primary-gradient);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(139, 102, 241);
+            width: 300px;
+            margin: auto; 
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .form input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            background-color: rgb(45, 45, 45);
+            color: #fff;
+        }
+
+        .form button {
+            padding: 10px;
+            background-color: rgb(237, 7, 70);
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form button:hover {
+            background-color: rgb(139, 102, 241);
+        }
+
+        .form p {
+            text-align: center;
+            color: #fff;
+        }
+
+        .form p a {
+            color: rgb(237, 7, 70);
+            text-decoration: none;
+        }
+
+        .form p a:hover {
+            color: rgb(139, 102, 241);
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            background: var(--primary-gradient);
+            padding: 42px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s;
+            margin-right: 15px;
+        }
+
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-nav {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .main-nav a {
+            color: #080808;
+            margin: 0 8px;
+            font-size: 15px;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .main-nav a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .main-nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            color: #fefefe;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px;
+            background: var(--primary-gradient);
+            color: #fff;
+        }
+
+        .social-media a {
+            color: #030303;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: rgb(139, 102, 241);
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+            }
+
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .form-container {
+                padding: 10px;
+            }
+
+            .form input, .form button {
+                padding: 8px;
+            }
+
+            footer {
+                padding: 15px;
+            }
+
+            .social-media a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logo.png" alt="Restaurant Logo">
+            </div>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            <a href="order.html"><i class="fas fa-utensils"></i> Order</a>
+            <a href="sign-up.html"><i class="fas fa-user-plus"></i> Sign up</a>
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <form id="login-form" class="form" onsubmit="return validateLoginForm()">
+                    <h2>Login</h2>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="sign-up.html">Register</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <p>&copy; 2024 Food Delivery App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateLoginForm() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert("Password should be at least 8 characters long.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

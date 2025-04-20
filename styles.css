@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #080707;
+}
+
+.first-color { 
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+}
+
+.second-color { 
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+}
+
+.third-color { 
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+}
+
+.fourth-color { 
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+}
+
+header {
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+    color: rgb(5, 4, 4);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.logo h1 {
+    display: none;}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    color: rgb(29, 27, 27);
+    margin-left: 20px;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+nav a i {
+    margin-right: 8px;
+}
+
+nav a:hover {
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+    border-radius: 5px;
+}
+.order-now-btn {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    padding: 15px 30px;
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background: box-shadow 38px 9px 55px 50px rgba(198, 33, 33, 0.6);
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(8, 125, 183, 0.727);
+    transition: background 0.3s;
+}
+
+.order-now-btn:hover {
+    background: linear-gradient(90deg, rgb(139, 102, 241) 0%, rgb(237, 7, 70) 100%);
+    box-shadow: 0 4px 8px rgba(8, 125, 183, 0.727);
+}
+
+main {
+    padding: 20px;
+    background-image: url('banner-2.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+    color: rgb(18, 17, 17);
+}
+
+.social-media a {
+    color: rgb(25, 24, 24);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+}

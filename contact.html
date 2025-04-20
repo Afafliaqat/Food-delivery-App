@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+        background: linear-gradient(90deg, rgb(229, 228, 226), rgb(181, 159, 242), rgb(255, 141, 171)); /* Platinum to Purple and Pink */
+            margin: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            padding: 30px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            width: 70px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #080808;
+            margin-left: 30px;
+            font-size: 16px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a i {
+            margin-right: 8px;
+        }
+
+        nav a:hover {
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        main {
+            padding: 120px 20px;
+            background-image: url('banner-2.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            color: #040404;
+        }
+
+        .social-media a {
+            color: #040404;
+            margin: 0 10px;
+        }
+
+        .social-media a:hover {
+            color: #040404;
+        }
+
+        .contact-section {
+            margin-top: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(90deg, rgb(229, 228, 226), rgb(181, 159, 242), rgb(255, 141, 171)); /* Platinum to Purple and Pink */
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        .contact-form, .contact-info {
+            width: 45%;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2, .contact-info h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .send-btn:hover {
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Unified Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Restaurant Logo">
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            <a href="sign-up.html"><i class="fas fa-user-plus"></i> Sign up</a>
+            <a href="login.html"><i class="fas fa-user"></i> Login</a>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Details</h2>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="name@email.com" required>
+                    <input type="tel" placeholder="03xxxxxxxxxx" required>
+                    <select required>
+                        <option value="">Message Subject</option>
+                        <option value="inquiry">Inquiry</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                    <textarea placeholder="Enter Your Message Here" maxlength="250" required></textarea>
+                    <div class="captcha">
+                        <input type="checkbox" required>
+                        <label>I'm not a robot</label>
+                    </div>
+                    <button type="submit" class="send-btn">Send</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h2>Reach out anytime—we're here to help!</h2>
+                <p><strong>Address:</strong>123, Gulzar-e-Quaid, Street No. 5, Rawalpindi, Punjab, Pakistan</p>
+                <p><strong><br><br>Contact Information:</strong></p>
+                <p>Call us at: 042 - 111 943 357</p>
+                <p>Email: customersupport@whimsicalbites.com</p>
+                <p><strong><br><br>Office Timings:</strong></p>
+                <p>Monday-Friday: 09:00 am-07:00 pm</p>
+                <p>Saturday-Sunday: 10:00 am-06:00 pm</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>

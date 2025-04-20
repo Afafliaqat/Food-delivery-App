@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout Page</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+      background: linear-gradient(90deg, rgb(229, 228, 226), rgb(181, 159, 242), rgb(255, 141, 171));
+      color: #ffffff;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+      padding: 10px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo img {
+      width: 70px;
+    }
+    header .cart {
+      margin-left: 600px;
+    }
+    header .cart a {
+      color: #000;
+      font-size: 30px;
+      padding: 5px;
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      color: #080808;
+      margin: 0 15px;
+      font-size: 16px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    nav a:hover {
+      background: linear-gradient(90deg, rgb(237, 7, 70), rgb(139, 102, 241));
+      border-radius: 5px;
+      padding: 10px 15px;
+    }
+    .container {
+      margin-top: 150px;
+    }
+    .billing-details, .order-summary {
+      background: #343a40;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .order-summary {
+      background-color: #ffffff;
+      color: #000;
+    }
+    .order-summary h4, .billing-details h4 {
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .btn-primary {
+      background-color: #ff8c00;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #e67e00;
+    }
+    @media (max-width: 768px) {
+      header .logo img { width: 50px; }
+      header .cart { margin-left: 20px; }
+      nav a { font-size: 14px; padding: 8px; }
+    }
+    @media (max-width: 576px) {
+      nav { flex-direction: column; }
+      .container { margin-top: 100px; }
+      .billing-details, .order-summary { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="logo"><img src="logo.png" alt="Restaurant Logo" class="img-fluid" /></div>
+    <nav class="d-flex flex-wrap">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+      <a href="order.html"><i class="fas fa-user"></i> Order</a>
+      <a href="sign-up.html"><i class="fas fa-user-plus"></i> Sign up</a>
+      <a href="login.html"><i class="fas fa-user"></i> Login</a>
+    </nav>
+    <div class="cart">
+      <a href="checkout.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </header>
+
+  <div class="container mt-5 pt-5">
+    <div class="row">
+      <!-- Billing Details -->
+      <div class="col-md-7 mb-4">
+        <div class="billing-details">
+          <h4>Billing Details</h4>
+          <form>
+            <div class="form-group">
+              <label>Order Type *</label>
+              <select class="form-control" id="orderType" required>
+                <option value="">Select Order Type</option>
+                <option value="delivery">Delivery</option>
+                <option value="pickup">Pickup</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Select City *</label>
+              <select class="form-control" id="citySelect" required>
+                <option value="">--Select City--</option>
+                <option value="Rawalpindi">Rawalpindi</option>
+                <option value="Islamabad">Islamabad</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" class="form-control" placeholder="Enter Full Name" required />
+            </div>
+            <div class="form-group">
+              <label>Country / Region (optional)</label>
+              <input type="text" class="form-control" value="Pakistan" disabled />
+            </div>
+            <div class="form-group" id="addressField">
+              <label>Street Address *</label>
+              <input type="text" class="form-control" placeholder="House number and street name" />
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" class="form-control" placeholder="Enter Phone Number" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" class="form-control" placeholder="Enter Email Address" required />
+            </div>
+            <div class="form-group">
+              <label>Order Notes</label>
+              <textarea class="form-control" id="orderNotes" placeholder="Notes about your order" rows="3" disabled></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="col-md-5">
+        <div class="order-summary">
+          <h4>Your Order</h4>
+          <ul class="list-group mb-3" id="cart-items"></ul>
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>Pickup Charges</span>
+            <span>Rs 0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>Subtotal</span>
+            <span id="subtotal">Rs 0</span>
+          </li>
+          <hr />
+          <div class="d-flex justify-content-between align-items-center">
+            <strong>Total</strong>
+            <strong id="total">Rs 0</strong>
+          </div>
+
+          <h5 class="mt-4">Payment Method</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cardPayment" checked />
+            <label class="form-check-label" for="cardPayment">Card Payment</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" />
+            <label class="form-check-label" for="cashOnDelivery">Cash on Delivery</label>
+          </div>
+
+          <button class="btn btn-primary btn-block mt-4">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const orderType = document.getElementById("orderType");
+      const orderNotes = document.getElementById("orderNotes");
+      const addressField = document.getElementById("addressField");
+  
+      orderType.addEventListener("change", () => {
+        if (orderType.value === "delivery") {
+          addressField.style.display = "block";
+          orderNotes.disabled = false;
+        } else {
+          addressField.style.display = "none";
+          orderNotes.disabled = true;
+        }
+      });
+  
+      // Load cart from localStorage
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartList = document.getElementById("cart-items");
+      let subtotal = 0;
+  
+      if (cartItems.length === 0) {
+        cartList.innerHTML = '<li class="list-group-item">No items in your cart.</li>';
+        document.getElementById("subtotal").textContent = "Rs 0";
+        document.getElementById("total").textContent = "Rs 0";
+      } else {
+        cartItems.forEach(item => {
+          // Validate if quantity and price are defined and valid
+          if (item.quantity && item.price && !isNaN(item.quantity) && !isNaN(item.price)) {
+            const li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center";
+            li.innerHTML = `<span>${item.name} x ${item.quantity}</span><span>Rs ${(item.price * item.quantity).toFixed(2)}</span>`;
+            cartList.appendChild(li);
+            subtotal += item.price * item.quantity;
+          }
+        });
+  
+        // Update the subtotal and total
+        document.getElementById("subtotal").textContent = "Rs " + subtotal.toFixed(2);
+        document.getElementById("total").textContent = "Rs " + subtotal.toFixed(2);
+      }
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

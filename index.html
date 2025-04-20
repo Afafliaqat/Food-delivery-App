@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo img {
+            margin-top: auto;
+            width: 70px;
+        }
+        
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        nav a {
+            color: #080808;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a i {
+            margin-right: 8px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        
+        .delivery-character {
+            position: absolute;
+            bottom: 20px;
+            left: 5%;
+            width: 120px;
+            height: 120px;
+            z-index: 3;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .scooter {
+            position: absolute;
+            bottom: 20px;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            z-index: 3;
+            animation: drive 15s linear infinite;
+        }
+        
+        @keyframes drive {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-150px); }
+        }
+        
+        /* Floating Food Icons */
+        .floating-icon {
+            position: absolute;
+            z-index: 2;
+            opacity: 0.7;
+            animation: floatUp 6s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            background-image: url('ban.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .text-overlay {
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        
+        .text-overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(255, 0, 225, 0.7);
+            line-height: 1.3;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            from { text-shadow: 2px 2px 10px rgba(255, 0, 225, 0.7); }
+            to { text-shadow: 2px 2px 20px rgba(255, 0, 225, 0.9); }
+        }
+        
+        .text-overlay h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(255, 0, 225, 0.7);
+            margin-bottom: 30px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .order-now-btn {
+            padding: 18px 36px;
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(8, 125, 183, 0.727);
+            transition: all 0.3s;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .order-now-btn:hover {
+            background: linear-gradient(90deg, rgb(139, 102, 241) 0%, rgb(237, 7, 70) 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 16px rgba(8, 125, 183, 0.9);
+        }
+        
+        .order-now-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .order-now-btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .popular-choices-section {
+            background-color: rgba(251, 244, 244, 0.168);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.292);
+            z-index: 2;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .popular-choices-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .popular-choices-section h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .image-container ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .image-wrapper {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(19, 18, 18, 0.915);
+            aspect-ratio: 1/1;
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .image-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .image-wrapper:hover img {
+            transform: scale(1.1);
+        }
+        
+        .menu-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px 10px 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .image-wrapper:hover .menu-name {
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            padding: 30px 0;
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+        }
+        
+        .social-media {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-media a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .social-media a:hover {
+            transform: translateY(-5px);
+            text-decoration: underline;
+        }
+        
+        footer p {
+            color: white;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .text-overlay h2 {
+                font-size: 2rem;
+            }
+            
+            .text-overlay h1 {
+                font-size: 2.5rem;
+            }
+            
+            .popular-choices-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-name {
+                font-size: 1.5rem;
+                transform: translateY(0);
+                background: rgba(0,0,0,0.5);
+            }
+            
+            .delivery-character {
+                width: 80px;
+                height: 80px;
+                bottom: 10px;
+            }
+            
+            .scooter {
+                width: 100px;
+                height: 100px;
+                bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav {
+                justify-content: center;
+            }
+            
+            .text-overlay h2 {
+                font-size: 1.8rem;
+            }
+            
+            .text-overlay h1 {
+                font-size: 2rem;
+            }
+            
+            .order-now-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .popular-choices-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Restaurant Logo">
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            <a href="order.html"><i class="fas fa-utensils"></i> Order</a>
+            <a href="sign-up.html"><i class="fas fa-user-plus"></i> Sign up</a>
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Floating food icons -->
+        <div class="floating-icon" style="left: 10%; top: 20%; animation-delay: 0s;">
+            <img src="https://cdn-icons-png.flaticon.com/512/5787/5787070.png" width="40" alt="Burger">
+        </div>
+        <div class="floating-icon" style="left: 25%; top: 15%; animation-delay: 1s;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081840.png" width="40" alt="Pizza">
+        </div>
+        <div class="floating-icon" style="left: 80%; top: 25%; animation-delay: 2s;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3174/3174880.png" width="40" alt="Drink">
+        </div>
+        <div class="floating-icon" style="left: 65%; top: 20%; animation-delay: 3s;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2718/2718224.png" width="40" alt="Ice Cream">
+        </div>
+        
+        <!-- Animated delivery character -->
+        <div class="delivery-character">
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Delivery Boy" width="120">
+        </div>
+        
+        <!-- Animated scooter -->
+        <div class="scooter">
+            <img src="https://cdn-icons-png.flaticon.com/512/2972/2972035.png" alt="Delivery Scooter" width="150">
+        </div>
+
+        <div class="text-overlay">
+            <h2>Bringing happiness to your door!</h2>
+            <h1>Order Now and Enjoy!</h1>
+        </div>
+
+        <a href="order.html" class="order-now-btn">
+            <i class="fas fa-utensils"></i> Order Now
+          </a>
+          
+
+        <div class="popular-choices-section">
+            <h1>Menu</h1>
+            <div class="image-container">
+                <ul>
+                    <li>
+                        <a href="order.html#burger" class="image-link">
+                            <div class="image-wrapper">
+                                <img src="bur.png" alt="Burger">
+                                <p class="menu-name">Burger</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="order.html#desserts" class="image-link">
+                            <div class="image-wrapper">
+                                <img src="des.png" alt="Dessert">
+                                <p class="menu-name">Dessert</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="order.html#fries" class="image-link">
+                            <div class="image-wrapper">
+                                <img src="fri.png" alt="Fries">
+                                <p class="menu-name">Fries</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="order.html#beverages" class="image-link">
+                            <div class="image-wrapper">
+                                <img src="bev.png" alt="Beverages">
+                                <p class="menu-name">Beverages</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+            <p>&copy; 2024 Food Delivery App. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Enhanced JavaScript for better interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Order Now button animation
+            const orderBtn = document.getElementById('orderNowBtn');
+            
+            orderBtn.addEventListener('mouseenter', () => {
+                orderBtn.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            orderBtn.addEventListener('mouseleave', () => {
+                orderBtn.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            orderBtn.addEventListener('click', () => {
+                window.location.href = 'order.html';
+            });
+            

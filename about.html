@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('img.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            padding: 30px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            margin-top: auto;
+            width: 70px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #080808;
+            margin-left: 30px;
+            font-size: 16px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a i {
+            margin-right: 8px;
+        }
+
+        nav a:hover {
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto; 
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .about {
+            background-color: rgba(13, 13, 13, 0.8); 
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .about p {
+            line-height: 1.6;
+        }
+
+        .quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 8px; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, rgb(237, 7, 70) 0%, rgb(139, 102, 241) 100%);
+            color: #040404;
+        }
+
+        .social-media a {
+            color: #040404;
+            margin: 0 10px;
+        }
+
+        .social-media a:hover {
+            color: #040404;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logo.png" alt="Food Express Logo">
+            </div>
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="#about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+            <a href="sign-up.html"><i class="fas fa-user-plus"></i> Sign up</a>
+            <a href="login.html"><i class="fas fa-user"></i> Login</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>About Us</h1>
+
+        <div class="about">
+            <h2>Overview</h2>
+            <p>Whimsical Bites is your go-to fast food destination, combining fun flavors with quick service for those on the move. We believe that delicious food should be accessible and enjoyable, no matter your schedule!</p>
+
+            <h2>Cuisine</h2>
+            <p>Our menu is packed with classic fast food favorites with a whimsical twist, including:</p>
+            <ul>
+                <li><strong>Burgers:</strong> Try our signature Whimsical Burger, topped with special sauce, crispy onions, and fresh veggies. We also offer plant-based options for our vegetarian friends.</li>
+                <li><strong>Fries:</strong> Enjoy our crispy fries, available in a variety of flavors, including loaded cheese fries and spicy garlic fries.</li>
+                <li><strong>Beverages:</strong> Quench your thirst with our refreshing beverage selection, from classic sodas to specialty lemonades and iced teas.</li>
+                <li><strong>Desserts:</strong> Treat yourself to our delightful milkshakes and whimsical desserts, including mini donuts and soft-serve ice cream.</li>
+            </ul>
+
+            <h2>Quality Ingredients</h2>
+            <p>At Whimsical Bites, we use quality ingredients to create fast food you can feel good about. Our commitment to freshness means you’ll always enjoy the best flavors in every bite.</p>
+
+            <h2>Delivery Service</h2>
+            <p>Craving something delicious? Our easy-to-use app lets you order in a snap. We provide:</p>
+            <ul>
+                <li><strong>Quick Delivery:</strong> Enjoy your meal hot and fresh, typically within 30 minutes.</li>
+                <li><strong>Contactless Delivery:</strong> Your safety is our priority, so we offer contactless delivery options.</li>
+                <li><strong>Customization:</strong> Personalize your meal with a variety of toppings and sides to suit your taste.</li>
+            </ul>
+
+            <h2>Atmosphere</h2>
+            <p>Whimsical Bites is designed for fun and convenience, whether you’re dining in or on the go. Our cheerful decor and friendly staff create a welcoming environment for everyone.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>
+
